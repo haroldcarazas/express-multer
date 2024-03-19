@@ -1,5 +1,5 @@
 import express from 'express'
-import { PORT } from './config.js'
+import { PORT } from './config/config.js'
 import imagenesRouter from './routes/imagenes.routes.js'
 
 const app = express()

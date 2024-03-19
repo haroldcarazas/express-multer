@@ -1,6 +1,6 @@
 import { uploadImage } from '../config/multer.js'
-import express from 'express'
-import { getImageByFilename, uploadImageFn } from '../controllers/imagenes.controller.js'
+import { Router } from 'express'
+import { getImageByFilename, getImageNames, uploadImageFn } from '../controllers/imagenes.controller.js'
 
 // Función para manejar el error
 const handleError = (err, req, res, next) => {
@@ -8,7 +8,9 @@ const handleError = (err, req, res, next) => {
   res.status(400).json({ error: 'Solo se admiten imágenes' })
 }
 
-const router = express.Router()
+const router = Router()
+
+router.get('/', getImageNames)
 
 // Ruta para mostrar una imagen
 router.get('/:filename', getImageByFilename)
