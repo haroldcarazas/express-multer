@@ -43,6 +43,7 @@ export const store = async (req, res) => {
     // Mensaje al cliente
     res.status(201).json({ message: 'Usuario creado.', user })
   } catch (error) {
+    console.log(error)
     let message = 'Error interno'
     let statusCode = 500
 
