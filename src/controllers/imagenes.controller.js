@@ -34,7 +34,7 @@ export const uploadImageFn = async (req, res, fileName) => {
   try {
     const { filename } = req.file
 
-    const [result] = await pool.query('INSERT INTO users (imagen) VALUES (?)', [filename])
+    const [result] = await pool.execute('INSERT INTO users (imagen) VALUES (?)', [filename])
 
     if (result) {
       res.json({ message: 'Archivo subido correctamente' })

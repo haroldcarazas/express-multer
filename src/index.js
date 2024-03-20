@@ -1,6 +1,7 @@
 import express from 'express'
 import { PORT } from './config/config.js'
 import imagenesRouter from './routes/imagenes.routes.js'
+import usersRouter from './routes/users.routes.js'
 
 const app = express()
 
@@ -14,6 +15,7 @@ app.get('/', (req, res) => {
   res.json({ message: 'Hello World' })
 })
 
-app.use('/api/image', imagenesRouter)
+app.use('/api/imagenes', imagenesRouter)
+app.use('/api/users', usersRouter)
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`))

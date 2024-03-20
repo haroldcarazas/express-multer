@@ -10,6 +10,7 @@ const handleError = (err, req, res, next) => {
 
 const router = Router()
 
+// Ruta para obtener todos los nombres de las imágenes existentes.
 router.get('/', getImageNames)
 
 // Ruta para mostrar una imagen
