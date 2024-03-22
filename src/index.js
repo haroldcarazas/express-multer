@@ -2,6 +2,7 @@ import express from 'express'
 import { PORT } from './config/config.js'
 import imagenesRouter from './routes/imagenes.routes.js'
 import usersRouter from './routes/users.routes.js'
+import { setSwaggerDocs } from './config/swagger/swagger-set.js'
 
 const app = express()
 
@@ -11,10 +12,13 @@ app.use((req, res, next) => {
   next()
 })
 
+app.use(express.json())
+
 app.get('/', (req, res) => {
   res.json({ message: 'Hello World' })
 })
 
+setSwaggerDocs(app)
 app.use('/api/imagenes', imagenesRouter)
 app.use('/api/users', usersRouter)
 
